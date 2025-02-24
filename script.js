@@ -2,7 +2,6 @@
 1. Obter a data e hora do momento da reserva, e registar no objeto armário selecionado para reserva.
 2. Calcular a data e hora para entrega das chaves (prazo de 24h), e registar no objeto armário selecionado para reserva.
 3. Exibir a data e hora de entrega no elemento html com Id = “resultado”.
-const usuario = { nome: "Raphael", matricula: "123456", pendencia: false, acessibilidade: true };
 */
 
 const usuario = { nome: "Raphael", matricula: "123456", pendencia: false, acessibilidade: true };
@@ -36,12 +35,15 @@ function reservarArmario() {
   
   // Caso exista armário(s) disponíveil, seguimos sorteando uma opção. 
   let armarioSorteado = armariosDisponiveis[Math.floor(Math.random() * armariosDisponiveis.length)];
-  
-  // Depois localizamos o armário emprestado na lista de armarios e mudamos o status do armário.
-  armarios.find(armario => armario.id === armarioSorteado.id).status = false;
-  armarios.find(armario => armario.id === armarioSorteado.id).dataReserva = new Date().getTime();
-  armarios.find(armario => armario.id === armarioSorteado.id).dataEntrega = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 
+  // mudamos as variaveis para salvar no objeto armário.
+  armarioSorteado.dataReserva = new Date().getTime();
+  armarioSorteado.dataEntrega = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  armarioSorteado.status = false;
+
+  
+  // Depois localizamos o armário emprestado na lista de armarios e mudamos os status do armário.
+  armarios.find(armario => armario.id === armarioSorteado.id) = armarioSorteado;
   
   // Finalmente, mudamos a pendencia do usuário para verdadeira.
   usuario.pendencia = true;

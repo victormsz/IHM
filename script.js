@@ -36,9 +36,10 @@ function reservarArmario() {
   // Caso exista armário(s) disponíveil, seguimos sorteando uma opção. 
   let armarioSorteado = armariosDisponiveis[Math.floor(Math.random() * armariosDisponiveis.length)];
 
+  
   // mudamos as variaveis para salvar no objeto armário.
-  armarioSorteado.dataReserva = new Date().getTime();
-  armarioSorteado.dataEntrega = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  armarioSorteado.dataReserva = agora;
+  armarioSorteado.dataEntrega = dataEntrega;
   armarioSorteado.status = false;
 
   
@@ -49,7 +50,7 @@ function reservarArmario() {
   usuario.pendencia = true;
   
   // Impmimimos uma mensagem de reserva para o usuário.
-  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso! data de devolução = ${armarioSorteado.dataEntrega}`;
+  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso! data de devolução = ${dataEntrega.toLocaleString()}`;
 
   console.log(usuario);
   console.log(armarios);

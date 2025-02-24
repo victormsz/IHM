@@ -38,12 +38,15 @@ function reservarArmario() {
 
   
   // mudamos as variaveis para salvar no objeto armário.
+  let agora = new Date();
+  let dataEntrega = new Date(agora.getTime() + 24 * 60 * 60 * 1000);
+
+  
+  
+  // Finalmente, mudamos a pendencia do usuário para verdadeira.
   armarioSorteado.dataReserva = agora;
   armarioSorteado.dataEntrega = dataEntrega;
   armarioSorteado.status = false;
-
-  
-  // Finalmente, mudamos a pendencia do usuário para verdadeira.
   usuario.pendencia = true;
   
   // Impmimimos uma mensagem de reserva para o usuário.

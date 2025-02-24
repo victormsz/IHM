@@ -31,10 +31,15 @@ function reservarArmario() {
       document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! Nenhum armário disponível para o tipo selecionado.`;
       return;
   }
+  
+  if (usuario.pendencia) {
+    document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! Você já tem um armário reservado.`;
+    return;
+}
+
 
   let armarioSorteado = armariosDisponiveis[Math.floor(Math.random() * armariosDisponiveis.length)];
 
-  // 🔹 Correção: Defina 'agora' antes de usá-la
   let agora = new Date(); 
   let dataEntrega = new Date(agora.getTime() + 24 * 60 * 60 * 1000);
 

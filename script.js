@@ -49,7 +49,7 @@ function reservarArmario() {
   usuario.pendencia = true;
   
   // Impmimimos uma mensagem de reserva para o usuário.
-  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso! data de devolução = ${new Date(armarioSorteado.dataEntrega)}`;
+  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso! data de devolução = ${armarioSorteado.dataEntrega}`;
 
   console.log(usuario);
   console.log(armarios);

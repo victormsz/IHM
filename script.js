@@ -1,4 +1,10 @@
-// objeto do usuário
+/*
+1. Obter a data e hora do momento da reserva, e registar no objeto armário selecionado para reserva.
+2. Calcular a data e hora para entrega das chaves (prazo de 24h), e registar no objeto armário selecionado para reserva.
+3. Exibir a data e hora de entrega no elemento html com Id = “resultado”.
+const usuario = { nome: "Raphael", matricula: "123456", pendencia: false, acessibilidade: true };
+*/
+
 const usuario = { nome: "Raphael", matricula: "123456", pendencia: false, acessibilidade: true };
 
 // lista objetos de armários

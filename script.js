@@ -9,14 +9,14 @@ const usuario = { nome: "Raphael", matricula: "123456", pendencia: false, acessi
 
 // lista objetos de armários
 const armarios = [
-  { id: 1, formato: "padrao", status: true, acessivel: false },
-  { id: 2, formato: "padrao", status: true, acessivel: false },
-  { id: 3, formato: "padrao", status: true, acessivel: false },
-  { id: 4, formato: "padrao", status: false, acessivel: true },
-  { id: 5, formato: "padrao", status: false, acessivel: true },
-  { id: 6, formato: "duplo", status: true, acessivel: true },
-  { id: 7, formato: "duplo", status: false, acessivel: true },
-  { id: 8, formato: "duplo", status: false, acessivel: true },  
+  { id: 1, formato: "padrao", status: true, acessivel: false, dataReserva: null, dataEntrega: null},
+  { id: 2, formato: "padrao", status: true, acessivel: false ,dataReserva: null, dataEntrega: null},
+  { id: 3, formato: "padrao", status: true, acessivel: false ,dataReserva: null, dataEntrega: null},
+  { id: 4, formato: "padrao", status: false, acessivel: true ,dataReserva: null, dataEntrega: null},
+  { id: 5, formato: "padrao", status: false, acessivel: true ,dataReserva: null, dataEntrega: null},
+  { id: 6, formato: "duplo", status: true, acessivel: true ,dataReserva: null, dataEntrega: null},
+  { id: 7, formato: "duplo", status: false, acessivel: true ,dataReserva: null, dataEntrega: null},
+  { id: 8, formato: "duplo", status: false, acessivel: true ,dataReserva: null, dataEntrega: null},  
 ];
 
 // função para reserva do armário, incluindo as regras.
@@ -38,13 +38,16 @@ function reservarArmario() {
   let armarioSorteado = armariosDisponiveis[Math.floor(Math.random() * armariosDisponiveis.length)];
   
   // Depois localizamos o armário emprestado na lista de armarios e mudamos o status do armário.
-  let armarioEmprestado = armarios.find(armario => armario.id === armarioSorteado.id).status = false;
+  armarios.find(armario => armario.id === armarioSorteado.id).status = false;
+  armarios.find(armario => armario.id === armarioSorteado.id).dataReserva = new Date().getTime();
+  armarios.find(armario => armario.id === armarioSorteado.id).dataEntrega = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+
   
   // Finalmente, mudamos a pendencia do usuário para verdadeira.
   usuario.pendencia = true;
   
   // Impmimimos uma mensagem de reserva para o usuário.
-  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso!`;
+  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso! data de devolução = ${new Date(armarioSorteado.dataEntrega)}`;
 
   console.log(usuario);
   console.log(armarios);

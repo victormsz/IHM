@@ -3,20 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Armário</title>
+    <title>Página Inicial</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <style>
+        /* Reset básico e configurações globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        /* Estilização do Cabeçalho */
+        .cabecalho {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navegacao {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Container Principal */
+        .conteudo-principal {
+            display: grid;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        /* Estilos comuns para seções */
+        .secao {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .titulo-secao {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        /* Seção de Mensagens */
+        .mensagens {
+            background: #fff3cd;
+            display: grid;
+            gap: 16px;
+        }
+
+        .card-mensagem {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #ffeeba;
+        }
+
+        /* Seção de Aulas */
+        .aulas {
+            background: #d4edda;
+            display: grid;
+            gap: 16px;
+        }
+
+        .item-aula {
+            display: grid;
+            gap: 8px;
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #c3e6cb;
+        }
+
+        /* Seção de Notícias */
+        .noticias {
+            background: #cce5ff;
+        }
+
+        .card-noticia {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #b8daff;
+        }
+
+        /* Responsividade */
+        @media (min-width: 768px) {
+            .conteudo-principal {
+                grid-template-columns: repeat(12, 1fr);
+            }
+
+            .mensagens {
+                grid-column: span 12;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .aulas {
+                grid-column: span 8;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .noticias {
+                grid-column: span 4;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .aulas {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Reserva de Armário</h2>
-        <label for="tipoArmario">Selecione o tipo de armário:</label>
-        <select id="tipoArmario">
-            <option value="padrao">Padrão</option>
-            <option value="duplo">Duplo</option>
-        </select>
-        <button onclick="reservarArmario()">Reservar</button>
-        <p id="resultado"></p>
-    </div>
+    <!-- Cabeçalho com ícones e logo -->
+    <header class="cabecalho">
+        <nav class="navegacao"></nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="conteudo-principal">
+        <!-- Seção de Mensagens -->
+        <section class="secao mensagens">
+            <h2 class="titulo-secao">Mensagens</h2>
+            <div class="card-mensagem">
+                <h3>Armário Reservado</h3>
+                <p>Você possui um armário reservado com entrega para hoje...</p>
+            </div>
+            <div class="card-mensagem">
+                <h3>Pendência Financeira</h3>
+                <p>Você possui uma pendência no financeiro...</p>
+            </div>
+        </section>
+
+        <!-- Seção de Aulas -->
+        <section class="secao aulas">
+            <h2 class="titulo-secao">Aulas</h2>
+            <div class="item-aula">
+                <h3>Disciplina 1</h3>
+                <p>Sala 203 • 14:00 - 16:00</p>
+            </div>
+            <div class="item-aula">
+                <h3>Disciplina 2</h3>
+                <p>Sala 305 • 16:30 - 18:30</p>
+            </div>
+            <div class="item-aula">
+                <h3>Disciplina 3</h3>
+                <p>Sala 102 • 19:00 - 21:00</p>
+            </div>
+        </section>
+
+        <!-- Seção de Notícias -->
+        <section class="secao noticias">
+            <h2 class="titulo-secao">Notícias</h2>
+            <div class="card-noticia">
+                <h3>Sucesso no Evento</h3>
+                <p>Confira os resultados do último workshop...</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

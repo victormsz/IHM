@@ -1,9 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        /* Reset básico e configurações globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        /* Estilização do Cabeçalho */
+        .cabecalho {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navegacao {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Container Principal */
+        .conteudo-principal {
+            display: grid;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        /* Estilos comuns para seções */
+        .secao {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .titulo-secao {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        /* Seção de Mensagens */
+        .mensagens {
+            background: #fff3cd;
+            display: grid;
+            gap: 16px;
+        }
+
+        .card-mensagem {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #ffeeba;
+        }
+
+        /* Seção de Aulas */
+        .aulas {
+            background: #d4edda;
+            display: grid;
+            gap: 16px;
+        }
+
+        .item-aula {
+            display: grid;
+            gap: 8px;
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #c3e6cb;
+        }
+
+        /* Seção de Notícias */
+        .noticias {
+            background: #cce5ff;
+        }
+
+        .card-noticia {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #b8daff;
+        }
+
+        /* Responsividade */
+        @media (min-width: 768px) {
+            .conteudo-principal {
+                grid-template-columns: repeat(12, 1fr);
+            }
+
+            .mensagens {
+                grid-column: span 12;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .aulas {
+                grid-column: span 8;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .noticias {
+                grid-column: span 4;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .aulas {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
 <body>
     <!-- Cabeçalho com ícones e logo -->
     <header class="cabecalho">
-        <nav class="navegacao">
-            </a>
-        </nav>
+        <nav class="navegacao"></nav>
     </header>
 
     <!-- Conteúdo Principal -->
@@ -48,136 +177,4 @@
         </section>
     </main>
 </body>
-
-/* Reset básico e configurações globais */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
-body {
-  background: #f5f5f5;
-  min-height: 100vh;
-}
-
-/* Estilização do Cabeçalho */
-.cabecalho {
-  background: #ffffff;
-  padding: 16px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.navegacao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.logo {
-  height: 32px;
-}
-
-.icone-menu img, .icone-perfil img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Container Principal */
-.conteudo-principal {
-  display: grid;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
-
-/* Estilos comuns para seções */
-.secao {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.titulo-secao {
-  font-size: 1.5rem;
-  color: #2d3436;
-  margin-bottom: 24px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-/* Seção de Mensagens */
-.mensagens {
-  background: #fff3cd; /* Cor temporária */
-  display: grid;
-  gap: 16px;
-}
-
-.card-mensagem {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #ffeeba;
-}
-
-/* Seção de Aulas */
-.aulas {
-  background: #d4edda; /* Cor temporária */
-  display: grid;
-  gap: 16px;
-}
-
-.item-aula {
-  display: grid;
-  gap: 8px;
-  padding: 16px;
-  background: #ffffff;
-  border-radius: 8px;
-  border-left: 4px solid #c3e6cb;
-}
-
-/* Seção de Notícias */
-.noticias {
-  background: #cce5ff; /* Cor temporária */
-}
-
-.card-noticia {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #b8daff;
-}
-
-/* Responsividade para Tablets */
-@media (min-width: 768px) {
-  .conteudo-principal {
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .mensagens {
-    grid-column: span 12;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .aulas {
-    grid-column: span 8;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .noticias {
-    grid-column: span 4;
-  }
-}
-
-/* Responsividade para Desktop */
-@media (min-width: 1024px) {
-  .aulas {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+</html>

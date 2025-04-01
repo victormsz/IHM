@@ -1,14 +1,10 @@
+/* Root variables for theming */
 :root {
   --cor-click: #126ae2;
-  /* Click */
   --cor-sombra: #0a599b;
-  /* Azul Escuro */
   --cor-text: black;
-  /* Preto */
   --cor-back1: #edf2f4;
-  /* Azul claro */
   --cor-back2: #6a937a;
-  /* Verde Escuro */
 
   --md-sys-color-primary: #126ae2;
   --md-sys-color-on-primary: #FFFFFF;
@@ -16,65 +12,43 @@
   --md-sys-color-on-primary-container: #002020;
 }
 
-body {
-  margin: 0px;
-  background-color: var(--cor-back1);
-}
+/* Import font */
+@import url('https://fonts.googleapis.com/css?family=Arimo');
 
-@import url(https://fonts.googleapis.com/css?family=Arimo);
-
-header {
-  position: relative;
-  height: 35px;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-}
-
-
-h3 {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 14px;
-  color: var(--cor-text);
-  padding-left: 5px;
-  padding-right: 5px
-}
-
-p {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 11px;
-  color: var(--cor-text);
-  line-height: 1.5;
-  orphans: 3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
+/* Basic reset and global styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Arimo', system-ui, -apple-system, sans-serif;
 }
+
+body {
+  margin: 0;
+  background-color: var(--cor-back1);
+  transition: background-color 0.3s ease;
+}
+
+/* Header and navigation */
+header {
+  position: relative;
+  height: 50px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
 #menu {
-  position: absolute;
-  left: 0px;
-  top: 10px;
-  margin-left: 15px;
   cursor: pointer;
 }
 
 #logo {
   position: absolute;
-  top: 13px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%);
 }
 
 .svg_logo {
@@ -83,81 +57,59 @@ p {
 
 .path_logo {
   fill: var(--cor-click);
+  transition: fill 0.3s ease;
 }
 
 #perfil {
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  margin-right: 15px;
+  margin-left: auto;
+  cursor: pointer;
 }
 
-#mensagens {
-  position: relative;
-  background-color: white;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  padding: 15px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+/* Typography */
+h2, h3 {
+  font-weight: 500;
+  color: var(--cor-text);
+  transition: color 0.3s ease;
 }
 
-#user_name {
-  display: block;
-  font-size: 17pt;
+h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
-#mns_box {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  margin-top: 5px;
+h3 {
+  font-size: 14px;
 }
 
-#icon {
-  width: 18px;
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 5px;
+p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--cor-text);
+  transition: color 0.3s ease;
 }
 
-#mns {
-  padding: 5px;
-  width: 80%;
-  display: inline-block;
+.font {
+  font-size: 14px;
+  color: var(--cor-text);
+  transition: color 0.3s ease;
 }
 
-.material-symbols-outlined {
+/* Icons */
+.material-icons-outlined {
   color: var(--cor-click);
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
+  transition: color 0.3s ease;
 }
 
 .icoG {
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .icoP {
   font-size: 18px;
-  /* vertical-align: middle; */
-  /* propriedade para deixar o icone centralizado na linha */
+  vertical-align: middle;
 }
 
-.font {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 11px;
-  color: var(--cor-text);
-}
-
+/* Menu */
 #menu_aba {
   height: 100%;
   width: 100%;
@@ -167,179 +119,172 @@ p {
   background-color: white;
   overflow-x: hidden;
   transition: 0.5s;
-  z-index: 1;
+  z-index: 100;
   display: none;
-  border-radius: 10px;
 }
-#menu_bot {
-  position: relative;
+
+.menu_bot {
   padding: 20px;
   display: block;
   cursor: pointer;
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 14pt;
+  font-size: 16px;
   color: var(--cor-click);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-#componentes {
-  position: relative;
+.menu_bot:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Main content sections */
+main {
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.secao {
   background-color: white;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  padding: 15px;
-  margin: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
+.titulo-secao {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Notifications */
+#user_name {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.mns_box {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.mns {
+  flex: 1;
+}
+
+/* Classes */
+.item-aula {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--cor-click);
+  transition: border-color 0.3s ease;
+}
+
+.item-aula:last-child {
+  margin-bottom: 0;
+}
+
+/* Carousel */
 .carousel-container {
+  position: relative;
   width: 100%;
   overflow: hidden;
-  position: relative;
+  padding: 10px 0;
 }
 
 .carousel {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
+  gap: 15px;
+  transition: transform 0.5s ease;
 }
 
 .card {
-  min-width: 100%;
-  box-sizing: border-box;
+  min-width: 280px;
+  flex-shrink: 0;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .info {
-  padding: 10px
+  padding: 15px;
 }
 
-.icon {
-  font-size: 15px;
-  margin-left: 5px;
-  margin-right: 2px;
-  width: 18px;
-  display: inline-block;
-  vertical-align: middle
-}
-
-button {
+.carousel-btn {
   position: absolute;
-  top: 30%;
+  top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background-color: var(--cor-click);
   color: white;
   border: none;
-  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 10px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: var(--cor-sombra);
 }
 
 #prevBtn {
-  left: 10px;
+  left: 5px;
 }
 
 #nextBtn {
-  right: 10px;
+  right: 5px;
 }
 
-.navegacao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* Conteúdo Principal */
-.conteudo-principal {
-  display: grid;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
-
-/* Estilos comuns para seções */
-.secao {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.titulo-secao {
-  font-size: 1.5rem;
-  color: #2d3436;
-  margin-bottom: 24px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-/* Estilização das mensagens */
-.mensagens {
-  background: #fff3cd;
-  display: grid;
-  gap: 16px;
-}
-
-.card-mensagem {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #ffeeba;
-}
-
-/* Estilização das aulas */
-.aulas {
-  background: #d4edda;
-  display: grid;
-  gap: 16px;
-}
-
-.item-aula {
-  display: grid;
-  gap: 8px;
-  padding: 16px;
-  background: #ffffff;
-  border-radius: 8px;
-  border-left: 4px solid #c3e6cb;
-}
-
-/* Estilização das notícias */
-.noticias {
-  background: #cce5ff;
-}
-
-.card-noticia {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #b8daff;
-}
-
-/* Responsividade */
+/* Responsive adjustments */
 @media (min-width: 768px) {
-  .conteudo-principal {
-      grid-template-columns: repeat(12, 1fr);
+  main {
+    padding: 0 20px;
   }
-
-  .mensagens {
-      grid-column: span 12;
-      grid-template-columns: repeat(2, 1fr);
+  
+  .card {
+    min-width: 320px;
   }
+}
 
-  .aulas {
-      grid-column: span 8;
-      grid-template-columns: repeat(2, 1fr);
+@media (min-width: 992px) {
+  header {
+    height: 60px;
   }
-
-  .noticias {
-      grid-column: span 4;
+  
+  .svg_logo {
+    width: 100px;
+  }
+  
+  main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+  
+  #mensagens {
+    grid-column: span 12;
+  }
+  
+  #aulas {
+    grid-column: span 6;
+  }
+  
+  .secao:last-child {
+    grid-column: span 6;
   }
 }

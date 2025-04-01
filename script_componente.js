@@ -34,18 +34,18 @@ class AulasComponent extends HTMLElement {
         else corNota = "green";
   
         this.shadowRoot.innerHTML += `
-              <div class="comp-aula">
-                <div class="lable-prova p_lable" style="${provaDisplay}">PROVA: <b>${a.prova}</b></div>
-                <div class="titulo_aula">${a.disciplina}</div>
-                <p class="p">Local e Horário: <b>${a.local} - ${a.horario}</b></p>
-                <div class="lables">
-                  <div class="lable-frequencia p_lable">FALTAS: <b>${a.frequencia}</b></div>
-                  <div class="lable-nota p_lable" style="color: ${corNota};">CR: <b>${a.nota}</b></div>
-                </div>
-              </div>
-            `;
-      });
-    }
+        <div class="comp-aula">
+          <div class="lable-prova p_lable" style="${a.prova_alert ? '' : 'display: none;'}">PROVA: <b>${a.prova}</b></div>
+          <div class="titulo_aula">${a.disciplina}</div>
+          <p class="p">Local e Horário: <b>${a.local} - ${a.horario}</b></p>
+          <div class="lables">
+            <div class="lable-frequencia p_lable">FALTAS: <b>${a.frequencia}</b></div>
+            <div class="lable-nota p_lable" style="color: ${corNota};">CR: <b>${a.nota}</b></div>
+          </div>
+        </div>
+      `;
+    });
   }
+}
 
 customElements.define('aulas-component', AulasComponent);  

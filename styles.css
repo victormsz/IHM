@@ -1,54 +1,50 @@
-/* Root variables for theming */
 :root {
-  --cor-click: #126ae2;
-  --cor-sombra: #0a599b;
-  --cor-text: black;
-  --cor-back1: #edf2f4;
-  --cor-back2: #6a937a;
-
+  --cor-click: #126ae2; /* Click */
+  --cor-sombra: #0a599b; /* Azul Escuro */
+  --cor-text: black; /* Preto */
+  --cor-back1: #edf2f4; /* Azul claro */
+  --cor-back2: #6a937a; /* Verde Escuro */
+  
   --md-sys-color-primary: #126ae2;
   --md-sys-color-on-primary: #FFFFFF;
   --md-sys-color-primary-container: #edf2f4;
   --md-sys-color-on-primary-container: #002020;
-}
-
-/* Import font */
-@import url('https://fonts.googleapis.com/css?family=Arimo');
-
-/* Basic reset and global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arimo', system-ui, -apple-system, sans-serif;
+  
+  --frequencia: #126ae2;
+  --nota: #126ae2;
+  --prova: #126ae2;
+  
+  
 }
 
 body {
-  margin: 0;
+  margin: 0px;
   background-color: var(--cor-back1);
-  transition: background-color 0.3s ease;
 }
 
-/* Header and navigation */
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+
 header {
   position: relative;
-  height: 50px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  margin-bottom: 20px;
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 #menu {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  margin-left: 15px;
   cursor: pointer;
 }
 
 #logo {
   position: absolute;
+  top: 13px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%);
 }
 
 .svg_logo {
@@ -57,59 +53,81 @@ header {
 
 .path_logo {
   fill: var(--cor-click);
-  transition: fill 0.3s ease;
 }
 
 #perfil {
-  margin-left: auto;
-  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  margin-right: 15px;
 }
 
-/* Typography */
-h2, h3 {
-  font-weight: 500;
-  color: var(--cor-text);
-  transition: color 0.3s ease;
+#mensagens {
+  position: relative;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
+#user_name {
+  display: block;
+  font-size: 17pt;
 }
 
-h3 {
-  font-size: 14px;
+#mns_box {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: 5px;
 }
 
-p {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--cor-text);
-  transition: color 0.3s ease;
+#icon {
+  width: 18px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 5px;
 }
 
-.font {
-  font-size: 14px;
-  color: var(--cor-text);
-  transition: color 0.3s ease;
+#mns {
+  padding: 5px;
+  width: 80%;
+  display: inline-block;
 }
 
-/* Icons */
-.material-icons-outlined {
+.material-symbols-outlined {
   color: var(--cor-click);
-  transition: color 0.3s ease;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
 }
 
 .icoG {
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .icoP {
   font-size: 18px;
-  vertical-align: middle;
+  /* vertical-align: middle; */
+  /* propriedade para deixar o icone centralizado na linha */
 }
 
-/* Menu */
+.font {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cor-text)
+}
+
 #menu_aba {
   height: 100%;
   width: 100%;
@@ -119,172 +137,127 @@ p {
   background-color: white;
   overflow-x: hidden;
   transition: 0.5s;
-  z-index: 100;
+  z-index: 1;
   display: none;
+  border-radius: 10px;
 }
 
-.menu_bot {
+#menu_bot {
+  position: relative;
   padding: 20px;
   display: block;
   cursor: pointer;
-  font-size: 16px;
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14pt;
   color: var(--cor-click);
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
-.menu_bot:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Main content sections */
-main {
-  padding: 0 15px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.secao {
+#componentes {
+  position: relative;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 0px;
+  left: 0px;
+  right: 0px;
   padding: 15px;
-  margin-bottom: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.titulo-secao {
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e0e0e0;
+h3 {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--cor-text);
+  padding-left: 5px;
+  padding-right: 5px
 }
 
-/* Notifications */
-#user_name {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: 500;
+p {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cor-text);
+  line-height: 1.5;
+  orphans: 3;
+  padding-left: 5px;
+  padding-right: 5px
 }
 
-.mns_box {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 10px;
-}
-
-.icon {
-  margin-right: 10px;
-  margin-top: 2px;
-}
-
-.mns {
-  flex: 1;
-}
-
-/* Classes */
-.item-aula {
-  background-color: #f9f9f9;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  border-left: 4px solid var(--cor-click);
-  transition: border-color 0.3s ease;
-}
-
-.item-aula:last-child {
-  margin-bottom: 0;
-}
-
-/* Carousel */
 .carousel-container {
   position: relative;
-  width: 100%;
   overflow: hidden;
-  padding: 10px 0;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
 }
 
 .carousel {
   display: flex;
-  gap: 15px;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 .card {
-  min-width: 280px;
-  flex-shrink: 0;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 100%;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .info {
-  padding: 15px;
+  padding: 10px
 }
 
-.carousel-btn {
+.icon {
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 2px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+button {
   position: absolute;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
-  background-color: var(--cor-click);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
   cursor: pointer;
-  z-index: 10;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background-color: var(--cor-sombra);
+  font-size: 10px;
 }
 
 #prevBtn {
-  left: 5px;
+  left: 10px;
 }
 
 #nextBtn {
-  right: 5px;
+  right: 10px;
 }
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-  main {
-    padding: 0 20px;
-  }
-  
-  .card {
-    min-width: 320px;
-  }
-}
-
-@media (min-width: 992px) {
-  header {
-    height: 60px;
-  }
-  
-  .svg_logo {
-    width: 100px;
-  }
-  
-  main {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
-  }
-  
-  #mensagens {
-    grid-column: span 12;
-  }
-  
-  #aulas {
-    grid-column: span 6;
-  }
-  
-  .secao:last-child {
-    grid-column: span 6;
-  }
+.comp-aula {
+  position: relative;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }

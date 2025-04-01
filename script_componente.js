@@ -34,10 +34,6 @@ class AulasComponent extends HTMLElement {
         else corNota = "green";
   
         this.shadowRoot.innerHTML += `
-        <div>
-          ${aulasDia.map(a => {
-            let provaDisplay = a.prova_alert ? '' : 'display: none;';
-            return `
               <div class="comp-aula">
                 <div class="lable-prova p_lable" style="${provaDisplay}">PROVA: <b>${a.prova}</b></div>
                 <div class="titulo_aula">${a.disciplina}</div>
@@ -48,9 +44,6 @@ class AulasComponent extends HTMLElement {
                 </div>
               </div>
             `;
-          }).join('')}
-        </div>
-      `;
       });
     }
   }

@@ -362,9 +362,3 @@ button {
       grid-column: span 4;
   }
 }
-
-@media (min-width: 1024px) {
-  .aulas {
-      grid-template-columns: repeat(3, 1fr);
-  }
-}

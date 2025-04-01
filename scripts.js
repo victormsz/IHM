@@ -87,58 +87,57 @@ function openMenu() {
   ];
   
   const carousel = document.querySelector('.carousel');
-  
-  // Função para criar os cards
-  function createCards() {
-      eventos.forEach(event => {
-          const card = document.createElement('div');
-          card.classList.add('card');
-          card.innerHTML = `
-              <img src="${event.image}" alt="${event.title}">
-              <div class="info">
-                  <h3>${event.title}</h3>
-                  <p>${event.description}</p>
-                  <p><span class="material-symbols-outlined icon">event</span> ${event.date} às ${event.time} <span class="material-symbols-outlined icon">pin_drop</span> ${event.location}</p>
-              </div>
-          `;
-          carousel.appendChild(card);
-      });
-  }
-  
-  // Controle do carrossel
-  let index = 0;
-  function nextCard() {
-      index = (index + 1) % eventos.length;
-      updateCarousel();
-  }
-  
-  function prevCard() {
-      index = (index - 1 + eventos.length) % eventos.length;
-      updateCarousel();
-  }
-  
-  function updateCarousel() {
-      carousel.style.transform = `translateX(-${index * 100}%)`;
-  }
-  
-  // Adicionando interatividade
-  document.getElementById('nextBtn').addEventListener('click', nextCard);
-  document.getElementById('prevBtn').addEventListener('click', prevCard);
-  
-  // Auto avanço a cada 5 segundos
-  setInterval(nextCard, 5000);
-  
-  // Arrastar no celular
-  let startX;
-  carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-  });
-  carousel.addEventListener('touchend', (e) => {
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) nextCard();
-      if (endX - startX > 50) prevCard();
-  });
-  
-  // Inicializando
-  createCards();
-  
+
+function createCards() {
+    carousel.innerHTML = ''; // Garante que não duplicamos os cards
+    eventos.forEach(event => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+            <img src="${event.image}" alt="${event.title}">
+            <div class="info">
+                <h3>${event.title}</h3>
+                <p>${event.description}</p>
+                <p><span class="material-symbols-outlined icon">event</span> ${event.date} às ${event.time} <span class="material-symbols-outlined icon">pin_drop</span> ${event.location}</p>
+            </div>
+        `;
+        carousel.appendChild(card);
+    });
+}
+
+// Controle do carrossel
+let index = 0;
+function updateCarousel() {
+    const totalCards = eventos.length;
+    const cardWidth = document.querySelector('.card').offsetWidth;
+    carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+}
+
+function nextCard() {
+    if (index < eventos.length - 1) {
+        index++;
+    } else {
+        index = 0; // Volta ao início
+    }
+    updateCarousel();
+}
+
+function prevCard() {
+    if (index > 0) {
+        index--;
+    } else {
+        index = eventos.length - 1; // Vai para o último
+    }
+    updateCarousel();
+}
+
+// Adicionando interatividade
+document.getElementById('nextBtn').addEventListener('click', nextCard);
+document.getElementById('prevBtn').addEventListener('click', prevCard);
+
+// Auto avanço a cada 5 segundos
+setInterval(nextCard, 5000);
+
+// Inicializa os cards
+createCards();
+setTimeout(updateCarousel, 100); // Aguarda criação dos elementos antes de atualizar

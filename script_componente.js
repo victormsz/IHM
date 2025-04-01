@@ -34,7 +34,7 @@ class AulasComponent extends HTMLElement {
         else corNota = "green";
   
         this.shadowRoot.innerHTML += `
-        <div class="comp-aula">
+        <div class="comp-aula" style="color: ${corNota}>
           <div class="lable-prova p_lable" style="${a.prova_alert ? '' : 'display: none;'}">PROVA: <b>${a.prova}</b></div>
           <div class="titulo_aula">${a.disciplina}</div>
           <p class="p">Local e Horário: <b>${a.local} - ${a.horario}</b></p>

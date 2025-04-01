@@ -26,8 +26,14 @@ class AulasComponent extends HTMLElement {
       link.rel = 'stylesheet';
       link.href = 'styles_componente.css'; 
       this.shadowRoot.appendChild(link); 
+
+      aulasDia.forEach(a => {
+        let corNota = "";
+        if (a.nota < 6) corNota = "red";
+        else if (a.nota >= 6 && a.nota < 8) corNota = "orange";
+        else corNota = "green";
   
-      this.shadowRoot.innerHTML += `
+        this.shadowRoot.innerHTML += `
         <div>
           ${aulasDia.map(a => {
             let provaDisplay = a.prova_alert ? '' : 'display: none;';
@@ -38,14 +44,15 @@ class AulasComponent extends HTMLElement {
                 <p class="p">Local e Horário: <b>${a.local} - ${a.horario}</b></p>
                 <div class="lables">
                   <div class="lable-frequencia p_lable">FALTAS: <b>${a.frequencia}</b></div>
-                  <div class="lable-nota p_lable">CR: <b>${a.nota}</b></div>
+                  <div class="lable-nota p_lable" style="color: ${corNota};">CR: <b>${a.nota}</b></div>
                 </div>
               </div>
             `;
           }).join('')}
         </div>
       `;
+      });
     }
   }
-  
-  customElements.define('aulas-component', AulasComponent);  
+
+customElements.define('aulas-component', AulasComponent);  
